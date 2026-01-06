@@ -1,0 +1,34 @@
+# Global configuration
+global:
+  load_from_base_dir: true
+  target_model: "./"
+  tokenizer: "./"
+  datasets:
+    - json_train_path: "./train_subset.json"
+      json_test_path: "./test_subset.json"
+  batch_size: 1
+  seed: 42
+  device: "cuda"  # This will use all available GPUs
+  fpr_thresholds:
+    - 0.1
+    - 0.01
+    - 0.001
+  n_bootstrap_samples: 10
+  test_samples: null
+  max_length: 512
+
+
+Wbc:
+  module: "wbc"
+  reference_model_path: "EleutherAI/pythia-2.8b"
+  context_window_lengths:
+    - 2
+    - 3
+    - 4
+    - 6
+    - 9
+    - 13
+    - 18
+    - 25
+    - 32
+    - 40
