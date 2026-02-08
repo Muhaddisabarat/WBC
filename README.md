@@ -1,8 +1,8 @@
 # Window-Based Comparison (WBC) Attack
 
+[![Read Blog](https://img.shields.io/badge/Blog-Read_Post-brightgreen.svg)](https://yuetian.me/blog/2026/wbc/)
+[![arXiv](https://img.shields.io/badge/arXiv-2601.02751-b31b1b.svg)](https://arxiv.org/abs/2601.02751)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-1.12+-ee4c2c.svg)](https://pytorch.org/)
-[![CUDA 11.0+](https://img.shields.io/badge/CUDA-11.0+-76b900.svg)](https://developer.nvidia.com/cuda-downloads)
 
 Implementation of Window-Based Comparison (WBC) - a membership inference attack against fine-tuned Large Language Models using localized window-based analysis. 
 
