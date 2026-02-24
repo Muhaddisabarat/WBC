@@ -176,16 +176,16 @@ The attack produces:
 └── utils.py               # Shared utilities
 ```
 
-## Requirements
-
-- **GPU Memory**: 
-  - Minimum: 8GB (for Pythia-160M)
-  - Recommended: 40GB
-  
-- **Disk Space**: ~5GB per fine-tuned model
-
-- **Python Packages**: See `requirements.txt`
 
 ## Cite our work
-
-TBD.
+```
+@misc{chen2026windowbasedmembershipinferenceattacks,
+      title={Window-based Membership Inference Attacks Against Fine-tuned Large Language Models}, 
+      author={Yuetian Chen and Yuntao Du and Kaiyuan Zhang and Ashish Kundu and Charles Fleming and Bruno Ribeiro and Ninghui Li},
+      year={2026},
+      eprint={2601.02751},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2601.02751}, 
+}
+```
