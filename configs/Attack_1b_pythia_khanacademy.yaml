@@ -1,0 +1,40 @@
+# Global configuration
+global:
+  load_from_base_dir: true
+  target_model: "/mnt/share/muhaddisaali/models/pythia-1b-pretrained-cosmopedia-khanacademy-16_1_1.0e-5_5/ckpts/checkpoint-6250"
+  tokenizer: "EleutherAI/pythia-1b"
+  datasets:
+    - json_train_path: "/mnt/share/muhaddisaali/models/pythia-1b-pretrained-cosmopedia-khanacademy-16_1_1.0e-5_5/train_subset.json"
+      json_test_path: "/mnt/share/muhaddisaali/models/pythia-1b-pretrained-cosmopedia-khanacademy-16_1_1.0e-5_5/test_subset.json"
+  batch_size: 1
+  seed: 42
+  device: "cuda"  # This will use all available GPUs
+  fpr_thresholds:
+    - 0.1
+    - 0.01
+    - 0.001
+  n_bootstrap_samples: 10
+  test_samples: null
+  max_length: 512
+
+#Reference-based attacks  
+ratio:
+  module: ratio
+  reference_model_path: "EleutherAI/pythia-1b"
+
+
+Wbc:
+  module: "wbc"
+  reference_model_path: "EleutherAI/pythia-1b"
+  context_window_lengths:
+    - 2
+    - 3
+    - 4
+    - 6
+    - 9
+    - 13
+    - 18
+    - 25
+    - 32
+    - 40
+

@@ -35,7 +35,7 @@ DATASETS = [
 
 # --- Base Paths ---
 # The base directory where your datasets are stored.
-BASE_DATASET_PATH = "PATH/TO/YOUR/DATASET"
+BASE_DATASET_PATH = "/home/muhaddisaali/Projects/WBC"
 
 # --- W&B Settings ---
 WANDB_PROJECT = "WBC"
@@ -47,8 +47,8 @@ TOKENIZER_MAX_LENGTH = 512
 # --- Training Hyperparameters ---
 # All training parameters are defined here for easy modification.
 TRAINING_PARAMS = {
-    "batch_size": 16,
-    "gradient_accumulation_steps": 1,
+    "batch_size": 8,
+    "gradient_accumulation_steps": 2,
     "learning_rate": "1.0e-5",
     "weight_decay": 0.1,
     "warmup_steps": 500,
@@ -57,7 +57,7 @@ TRAINING_PARAMS = {
     "eval_strategy": "epoch",
     "save_strategy": "epoch",
     "logging_strategy": "epoch",
-    "save_total_limit": -1,
+    "save_total_limit": 2,
     "bf16": True,
     "fp16": False,
 }

@@ -240,78 +240,78 @@ def batch_generate_subsets(dataset_list, num_sample=20000, context=None, member_
 
 if __name__ == "__main__":
     MAIN_DATASETS = [
-        {
-            "name": "EleutherAI/wikitext_document_level",
-            "config": "wikitext-103-v1",
-            "split": "train",
-            "text_column": "page"
-        },
-        {
-            "name": "EdinburghNLP/xsum",
-            "config": None,
-            "split": "train",
-            "text_column": "document"
-        },
-        {
-            "name": "sentence-transformers/reddit",
-            "config": None,
-            "split": "train",
-            "text_column": "body"
-        },
-        {
-            "name": "sentence-transformers/amazon-reviews",
-            "config": None,
-            "split": "train",
-            "text_column": "review"
-        },
-        {
-            "name": "sentence-transformers/ccnews",
-            "config": None,
-            "split": "train",
-            "text_column": "article"
-        },
-        {
-            "name": "HuggingFaceTB/cosmopedia",
-            "config": "auto_math_text",
-            "split": "train",
-            "text_column": "text"
-        },
+#        {
+#            "name": "EleutherAI/wikitext_document_level",
+#            "config": "wikitext-103-v1",
+#            "split": "train",
+#            "text_column": "page"
+#        },
+#        {
+#            "name": "EdinburghNLP/xsum",
+#            "config": None,
+#            "split": "train",
+#            "text_column": "document"
+#        },
+#        {
+#            "name": "sentence-transformers/reddit",
+#            "config": None,
+#            "split": "train",
+#            "text_column": "body"
+#        },
+#        {
+#            "name": "sentence-transformers/amazon-reviews",
+#            "config": None,
+#            "split": "train",
+#            "text_column": "review"
+#        },
+#        {
+#            "name": "sentence-transformers/ccnews",
+#            "config": None,
+#            "split": "train",
+#            "text_column": "article"
+#        },
+#        {
+#            "name": "HuggingFaceTB/cosmopedia",
+#            "config": "auto_math_text",
+#            "split": "train",
+#            "text_column": "text"
+#        },
         {
             "name": "HuggingFaceTB/cosmopedia",
             "config": "khanacademy",
             "split": "train",
             "text_column": "text"
         },
-        {
-            "name": "HuggingFaceTB/cosmopedia",
-            "config": "stanford",
-            "split": "train",
-            "text_column": "text"
-        },
-        {
-            "name": "HuggingFaceTB/cosmopedia",
-            "config": "stories",
-            "split": "train",
-            "text_column": "text"
-        },
-        {
-            "name": "HuggingFaceTB/cosmopedia",
-            "config": "web_samples_v2",
-            "split": "train",
-            "text_column": "text"
-        },
-        {
-            "name": "HuggingFaceTB/cosmopedia",
-            "config": "wikihow",
-            "split": "train",
-            "text_column": "text"
-        },
-        {
-            "name": "HuggingFaceTB/cosmopedia",
-            "config": "stanford",
-            "split": "train",
-            "text_column": "text"
-        },
+#        {
+#            "name": "HuggingFaceTB/cosmopedia",
+#            "config": "stanford",
+#            "split": "train",
+#            "text_column": "text"
+#        },
+#        {
+#            "name": "HuggingFaceTB/cosmopedia",
+#            "config": "stories",
+#            "split": "train",
+#            "text_column": "text"
+#        },
+#        {
+#            "name": "HuggingFaceTB/cosmopedia",
+#            "config": "web_samples_v2",
+#            "split": "train",
+#            "text_column": "text"
+#        },
+#        {
+#            "name": "HuggingFaceTB/cosmopedia",
+#            "config": "wikihow",
+#            "split": "train",
+#            "text_column": "text"
+#        },
+#        {
+#            "name": "HuggingFaceTB/cosmopedia",
+#            "config": "stanford",
+#            "split": "train",
+#            "text_column": "text"
+#        },
     ]
 
     # We want to sample 20,000 examples from each,

@@ -1,0 +1,40 @@
+run_name: pythia-1.4b-pretrained-cosmopedia-khanacademy
+wandb_project: WBC
+wandb_group: YOUR_WANDB_GROUP
+
+dataset:
+  train:
+    type: local
+    path: "./cosmopedia-khanacademy-subset/train.json"
+  # val not provided -> We'll use test for val
+  test:
+    type: local
+    path: ./cosmopedia-khanacademy-subset/test.json
+
+tokenizer:
+  identifier: EleutherAI/pythia-1.4b
+  max_length: 512
+
+model:
+  identifier: EleutherAI/pythia-1.4b
+  load_pretrained: true
+
+training: 
+
+  output_dir: "./pythia-1.4b-pretrained-cosmopedia-khanacademy-16_1_1.0e-5_5"
+  # deepspeed_config: configs/ds_config.json
+  batch_size: 8
+  gradient_accumulation_steps: 2
+  learning_rate: 1.0e-5
+  weight_decay: 0.1
+  warmup_steps: 500
+  num_train_epochs: 10         # For epoch-based training
+  max_steps: -1                # Must be -1 to fully rely on epochs
+  eval_strategy: epoch
+  save_strategy: epoch
+  logging_strategy: epoch
+  save_total_limit: 1
+  bf16: true
+  fp16: false
+  #early_stopping_patience: 3
+  #early_stopping_threshold: 0.001

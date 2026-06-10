@@ -235,6 +235,27 @@ def load_mimir_dataset(name: str, split: str) -> Dataset:
     return dataset
 
 
+def _extract_texts(obj):
+    """
+    Extract a list of text strings from a loaded JSON object.
+
+    Supports two formats:
+      - Dataset.to_dict() dump: {"data": {"text": [...]}, "indices": [...]}
+      - list of records:        [{"text": ...}, ...]
+    """
+    if isinstance(obj, dict):
+        # Dataset.to_dict()-style dump with nested "data" column dict.
+        if "data" in obj and isinstance(obj["data"], dict) and "text" in obj["data"]:
+            return list(obj["data"]["text"])
+        # Flat column dict: {"text": [...]}
+        if "text" in obj and isinstance(obj["text"], list):
+            return list(obj["text"])
+        raise ValueError(f"Unsupported JSON dict structure; keys={list(obj.keys())}")
+    if isinstance(obj, list):
+        return [item["text"] for item in obj]
+    raise ValueError(f"Unsupported JSON top-level type: {type(obj).__name__}")
+
+
 def load_json_dataset(train_path, test_path):
     """
     Load dataset from JSON files.
@@ -243,11 +264,11 @@ def load_json_dataset(train_path, test_path):
     Results are shuffled for balanced evaluation.
     """
     with open(train_path, 'r', encoding='utf-8') as f:
-        train_data = json.load(f)['data']['text']
+        train_data = _extract_texts(json.load(f))
     train_labels = [1] * len(train_data)
 
     with open(test_path, 'r', encoding='utf-8') as f:
-        test_data = json.load(f)['data']['text']
+        test_data = _extract_texts(json.load(f))
     test_labels = [0] * len(test_data)
 
     all_texts = train_data + test_data

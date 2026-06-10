@@ -8,6 +8,7 @@ Usage:
     python run.py -c config.yaml --output ./results --target-model gpt2
 """
 import argparse
+import hashlib
 import logging
 import os
 import time
@@ -72,9 +73,19 @@ def init_dataset(
         remove_columns=[col for col in dataset.column_names if col not in ['label', 'text', 'nlloss']],
         load_from_cache_file=False,
         num_proc=global_config.get("dataset_map_num_proc", 1),
-        new_fingerprint=f"dataset_{get_printable_ds_name(ds_info)}"
+        new_fingerprint=_make_fingerprint(get_printable_ds_name(ds_info))
     )
     return dataset
+
+
+def _make_fingerprint(name: str) -> str:
+    """Build a valid dataset fingerprint (datasets caps fingerprints at 64 chars)."""
+    fp = f"dataset_{name}"
+    if len(fp) <= 64:
+        return fp
+    # Truncate but keep uniqueness with a short hash suffix.
+    digest = hashlib.sha1(fp.encode("utf-8")).hexdigest()[:8]
+    return f"{fp[:55]}_{digest}"
 
 
 def parse_args():
